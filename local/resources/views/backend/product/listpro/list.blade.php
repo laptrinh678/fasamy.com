@@ -65,7 +65,25 @@
 															<br> <br>
 															Giá: {{$val->pro_price}}
 															<br> <br>
-															Màu: <ul class="mausacsp">{!!$val->mausac!!}</ul> 
+															Màu: 
+															<ul class="mausacsp">
+																
+																<?php
+																	$mausac = $val->mausac;
+								                                    $mausac_decode = json_decode($mausac, true);
+																	if(isset($mausac_decode))
+																	{
+																		foreach ($mausac_decode as $value) 
+																		{
+																			echo '<span>'.$value. '</span>';
+																		}
+																	}
+
+																 ?>
+
+																
+																
+															</ul> 
 															<br> <br>
 															Mã Sp: 	{{$val->pro_masp}}
 															
@@ -83,7 +101,19 @@
 														<img width="80" src="{{asset('public/backend/product/'.$val->pro_img2)}}" class="thumbnail">
 													    </td>
 														<td>
-														
+															<?php
+																	$kichthuoc = $val->kichthuoc;
+								                                    $kichthuoc_decode = json_decode($kichthuoc, true);
+																	if(isset($kichthuoc_decode))
+																	{
+																		foreach ($kichthuoc_decode as $value) 
+																		{
+																			echo '<span>'.$value. '</span>';
+																		}
+																	}
+
+																 ?>
+
 														</td>
 
 														<td class="hidden-480">

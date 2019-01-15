@@ -27,6 +27,8 @@ class productcontroller extends Controller
       $id_cat = substr($request->cat_id,0,2);
       $cat_slug = substr($request->cat_id,3,300);
 
+      $mausac = $request->mausac;
+      $kichthuoc= $request->kichthuoc;
       //dd($cat_slug); die();
 
       $product = new productmodel;
@@ -50,8 +52,9 @@ class productcontroller extends Controller
       $product->metadescription=$request->metadescription;
       $product->pro_price = $request->pro_price;
       $product->pro_masp = $request->pro_masp;
-      $product->mausac = $request->mausac;
-      $product->kichthuoc = $request->kichthuoc;
+
+      $product->mausac = json_encode($mausac);
+      $product->kichthuoc = json_encode($kichthuoc);
       $product->title = $request->title;
       //$product->pro_phukien = $request->pro_phukien;
       //$product->pro_baohanh = $request->pro_baohanh;

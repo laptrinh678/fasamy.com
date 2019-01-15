@@ -1,8 +1,10 @@
 @extends('backend.master.index')
 @section('content')
 @include('errors.functions')
+<link rel="stylesheet" href="assets/css/select2.min.css" /> 
 <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="assets/ckeditor/ckfinder/ckfinder.js"></script>
+
 <div class="page-content">		
 	<div class="page-header">
 		<h1>
@@ -89,7 +91,7 @@
 						<input type="text" name="pro_masp" class="form-control">
 					</div>
 				</div>
-				<div class="form-group">
+				<!--<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Màu sắc</label>
 					<div class="col-sm-3">
 						<textarea type="text" name="mausac"  cols="34" rows="6" placeholder="" ></textarea>
@@ -98,7 +100,28 @@
 					<p>{{'<li><span>Trắng</span></li>'}}</p>
 					<p>{{'<li><span>Đỏ</span></li>'}}</p>
 					<p>{{'<li><span>Cam</span></li>'}}</p>
-				</div>
+				</div>-->
+
+				<div class="form-group">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right">Màu sắc </label>
+
+										<div class="col-xs-12 col-sm-9">
+											<select multiple="" id="state" name="mausac[]" class="select2" data-placeholder="Click to Choose...">
+												<option value="Xanh">Xanh</option>
+												<option value="trang">Trắng</option>
+												<option value="Do">Đỏ</option>
+												<option value="vang">Vàng</option>
+												<option value="Den">Đen</option>
+												<option value="nau">Nâu</option>
+												<option value="Da Cam">Da Cam</option>
+												<option value="tim">Tím</option>
+												<option value="hong">Hồng</option>
+												<option value="Xanh da troi">Xanh da trời</option>
+												<option value="Xanh la cay">Xanh lá cây</option>
+												<option value="xam">Xám</option>
+											</select>
+										</div>
+									</div>
 				<!--<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Kích thước</label>
 					<div class="col-sm-3">
@@ -115,7 +138,7 @@
 					</div>
 				</div>
 
-				<div class="form-group">
+				<!--<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Size sản phẩm</label>
 					<div class="col-sm-3">
 						<textarea type="text" name="kichthuoc"  cols="34" rows="6" placeholder="" ></textarea>
@@ -125,7 +148,29 @@
 					<p>{{'<li><span>S</span></li>'}}</p>
 					<p>{{'<li><span>M</span></li>'}}</p>
 					
-				</div>
+				</div>-->
+				<div class="form-group">
+										<label class="control-label col-xs-12 col-sm-3 no-padding-right">Size sản phẩm </label>
+
+										<div class="col-xs-12 col-sm-9">
+											<select multiple="" id="state" name="kichthuoc[]" class="select2" data-placeholder="Click to Choose...">
+												<option value="X">X</option>
+												<option value="M">M</option>
+												<option value="L">L</option>
+												<option value="XL">XL</option>
+												<option value="XXL">XXL</option>
+												<option value="25">25</option>
+												<option value="26">26</option>
+												<option value="27">27</option>
+												<option value="28">28</option>
+												<option value="29">29</option>
+												<option value="30">30</option>
+												<option value="31">31</option>
+												<option value="32">32</option>
+												<option value="33">33</option>
+											</select>
+										</div>
+									</div>
 				<!--<div class="space-4"></div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Phụ kiện </label>
@@ -295,6 +340,18 @@
 	</div><!-- /.row -->
 </div><!-- /.page-content -->
 <script src="assets/uploadfile_lap/jquery.js"></script>
+<script src="assets/js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+		<script src="assets/js/jquery.bootstrap-duallistbox.min.js"></script>
+		<script src="assets/js/jquery.raty.min.js"></script>
+		<script src="assets/js/bootstrap-multiselect.min.js"></script>
+		<script src="assets/js/select2.min.js"></script>
+		<script src="assets/js/jquery-typeahead.js"></script>
  <script>
  	// Xem hình ảnh trước khi upload
 function previewImg(event) {
@@ -342,6 +399,115 @@ $('#div_2 .btn-reset2').on('click', function() {
 	$('#div_2 .output').hide();
 });
  </script>
+ <script type="text/javascript">
+			jQuery(function($){
+			    var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({infoTextFiltered: '<span class="label label-purple label-lg">Filtered</span>'});
+				var container1 = demo1.bootstrapDualListbox('getContainer');
+				container1.find('.btn').addClass('btn-white btn-info btn-bold');
+			
+				/**var setRatingColors = function() {
+					$(this).find('.star-on-png,.star-half-png').addClass('orange2').removeClass('grey');
+					$(this).find('.star-off-png').removeClass('orange2').addClass('grey');
+				}*/
+				$('.rating').raty({
+					'cancel' : true,
+					'half': true,
+					'starType' : 'i'
+					/**,
+					
+					'click': function() {
+						setRatingColors.call(this);
+					},
+					'mouseover': function() {
+						setRatingColors.call(this);
+					},
+					'mouseout': function() {
+						setRatingColors.call(this);
+					}*/
+				})//.find('i:not(.star-raty)').addClass('grey');
+				
+				
+				
+				//////////////////
+				//select2
+				$('.select2').css('width','200px').select2({allowClear:true})
+				$('#select2-multiple-style .btn').on('click', function(e){
+					var target = $(this).find('input[type=radio]');
+					var which = parseInt(target.val());
+					if(which == 2) $('.select2').addClass('tag-input-style');
+					 else $('.select2').removeClass('tag-input-style');
+				});
+				
+				//////////////////
+				$('.multiselect').multiselect({
+				 enableFiltering: true,
+				 enableHTML: true,
+				 buttonClass: 'btn btn-white btn-primary',
+				 templates: {
+					button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span> &nbsp;<b class="fa fa-caret-down"></b></button>',
+					ul: '<ul class="multiselect-container dropdown-menu"></ul>',
+					filter: '<li class="multiselect-item filter"><div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input class="form-control multiselect-search" type="text"></div></li>',
+					filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default btn-white btn-grey multiselect-clear-filter" type="button"><i class="fa fa-times-circle red2"></i></button></span>',
+					li: '<li><a tabindex="0"><label></label></a></li>',
+			        divider: '<li class="multiselect-item divider"></li>',
+			        liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>'
+				 }
+				});
+			
+				
+				///////////////////
+					
+				//typeahead.js
+				//example taken from plugin's page at: https://twitter.github.io/typeahead.js/examples/
+				var substringMatcher = function(strs) {
+					return function findMatches(q, cb) {
+						var matches, substringRegex;
+					 
+						// an array that will be populated with substring matches
+						matches = [];
+					 
+						// regex used to determine if a string contains the substring `q`
+						substrRegex = new RegExp(q, 'i');
+					 
+						// iterate through the pool of strings and for any string that
+						// contains the substring `q`, add it to the `matches` array
+						$.each(strs, function(i, str) {
+							if (substrRegex.test(str)) {
+								// the typeahead jQuery plugin expects suggestions to a
+								// JavaScript object, refer to typeahead docs for more info
+								matches.push({ value: str });
+							}
+						});
+			
+						cb(matches);
+					}
+				 }
+			
+				 $('input.typeahead').typeahead({
+					hint: true,
+					highlight: true,
+					minLength: 1
+				 }, {
+					name: 'states',
+					displayKey: 'value',
+					source: substringMatcher(ace.vars['US_STATES']),
+					limit: 10
+				 });
+					
+					
+				///////////////
+				
+				
+				//in ajax mode, remove remaining elements before leaving page
+				$(document).one('ajaxloadstart.page', function(e) {
+					$('[class*=select2]').remove();
+					$('select[name="duallistbox_demo1[]"]').bootstrapDualListbox('destroy');
+					$('.rating').raty('destroy');
+					$('.multiselect').multiselect('destroy');
+				});
+			
+			});
+		</script>
 @endsection('content')
 
 	
