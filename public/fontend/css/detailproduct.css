@@ -1,0 +1,69 @@
+.detail_pro{width: 100%; float: left;}
+.titel_detail_pro span{color: black;font-size: 15px;}
+.fa-angle-right{color: black; font-size: 14px;}
+.img_detail_pro{width: 100%;
+ float: left; border:1px solid #dedcdc; margin-top: 5px; 
+ margin-bottom: 5px;padding-top: 20px;
+ min-height: 490px;
+}
+.content_detail_pro{ padding-top: 15px; }
+.tabs-above{width: 100%; float: left; margin-top: 5px; margin-bottom: 5px; border-left: 0px;}
+.tab-content{border:1px solid #dedcdc;border-top: 0px; padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;}
+.title_detail{ font-size: 20px; font-family: "RobotoBold";margin-top: 20px; }
+.trangthai >p{color: black; font-size: 13px;}
+.mausac >p{color: black; font-size: 13px;}
+.kichthuoc >p{color: black; font-size: 13px;}
+.mausac ul li{ display: inline-block; }
+.mausac ul li>span{ color: white;
+    background: #76BA15;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 3px;}
+.kichthuoc ul li{ display: inline-block; }
+.kichthuoc ul li>span{ color: black;
+    background: #ffd600;
+    /* padding: 8px; */
+    margin: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    /* border-radius: 28px; */
+    /* font-size: 14px; */ }
+.splienquan .content{ width: 100%; float: left; border-bottom:1px solid #dedcdc;padding-top: 10px;
+    padding-bottom: 10px;  }
+.item_tt_sp{width: 100%; float: left; margin-top: 5px; margin-bottom: 5px;}
+.item_tt_sp>p>span{ color: red; }
+.item_tt_sp>li>span{ background: red !important;  }
+.item_tt_sp>p{color: black; margin-top: 13.5px;
+    margin-bottom: 12px;}
+.right_70 {
+    width: 70%;
+    float: left;
+    padding-top: 22px;
+    padding-left: 20px;
+}
+.right_70>p { color: red; margin-top: 10px;}
+.huongdanmuahang>p>a{ background: #ff8e16;
+    padding: 10px; }
+.huongdanmuahang>p>a:hover{color: white;}
+.anhchitietsp>p{color: black; font-size: 14px; text-align: justify; font-family:Roboto-Regular; }
+.anhchitietsp{ padding-top: 20px; padding-bottom: 20px; }
+.thongtinchitietsp {padding-top: 42px;}
+.thongtinchitietsp .mottram{ border: 1px solid #dedcdc;
+    padding-left: 20px; padding-bottom: 20px;min-height: 494px;}
+.detail_pro_left{min-height: 494px;}
+.xzoom-preview {
+    border: 1px solid #888;
+    margin-left: -10px;
+    background: #2f4f4f;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+}
+.x_zoom_right .baymuoi{width: 70%; float: left;}
+.x_zoom_right .bamuoi{width: 30%; float: left;padding-right: 10px;}
+.column{width: 100%; float: left}
+.chiase{ color: black; font-size: 14px; text-align: center }
+.xzoom-thumbs>a>img{width: 100%;
+    height: 81px; }
+.bamuoi>p{ margin-top: 10px; margin-bottom: 10px; }
+#xzoom-default{width: 90%; height: 370px;}

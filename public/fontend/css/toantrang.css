@@ -1,0 +1,85 @@
+.button-search .fa-search{ color: black; font-size: 14px; }
+div#search .button-search {
+    position: absolute;
+    padding: 0px 5px;
+    background: #fff;
+    border: 0;
+    right: 9px;
+    top: 4px;
+    border-radius: 19px;
+    color: #999;
+}
+.fa-angle-double-right {
+    color: black;
+    font-size: 12px;
+}
+.item_nha:hover{border: 1px solid #f53a3a;}
+.item_nha .content{     min-height: 60px;
+    padding-top: 10px;}
+a{text-decoration: none !important}
+.menucon1 .right_70{padding-top: 0px!important;}
+.nammoi {width: 50%; float: left;}
+.img_menu_con {
+    width: 100%;
+    height: 40px;
+}
+.menu_tintuc_con{ padding-left: 10px; padding-right: 10px; }
+.shopingcart{width: 100%; float: left;padding-top: 15px; padding-bottom: 15px;}
+.table_shop{width: 100%; float: left;margin-bottom: 15px;}
+.table_shop tr{ border: 1px solid #949494; }
+.table_shop td{ border: 1px solid #949494; }
+.tr_title td{ text-align: center;
+    color: #f5f1f1;
+    font-size: 20px;
+    padding: 10px;
+    background: #01c536;}
+.tr_content td{ text-align: center; color: black; font-size: 14px; padding: 10px; font-family: Roboto-Regular;}
+.tr_content .fa-trash-o{ font-size: 20px;
+    color: red; }
+.title_gh .fa-shopping-bag{ color: black; font-size: 28px;margin-right: 10px; margin-left: 8px; }
+.title_gh .fa-money{ color: black; font-size: 28px;margin-right: 10px; margin-left: 8px; }
+.title_gh .fa-envelope-o{ color: black; font-size: 28px;margin-right: 10px; margin-left: 8px; }
+
+.title_gh{ margin-bottom: 15px; }
+.thanhtoan{ color: black; font-size: 14px; }
+.tongtt{ color: black; font-size: 14px;}
+.muatiep{ background: #28a745;  }
+.thanhtoan .btn { padding: 8px; border-radius: 4px; }
+.thanhtoan .btn>a { color: white; }
+.item_nha {position: relative;}
+.item_nha .shopingcart{
+    position: absolute;
+    z-index: 2;
+    bottom: 94px;
+    border-top: 3px double #000000;
+    border-bottom: 3px double #000000;
+    left: 0px;
+    text-align: center;
+    display: none;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.item_nha .shopingcart>a{color: black; font-size: 15px; text-transform: uppercase;}
+.img_menucontoantrang{width: 100%;
+    height: 180px;}
+.title_gh>span{color: black;}
+#inputsearch{ padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 135px;
+    border: 1px solid black;
+     }
+#btsearch{ background: none; margin-left: -44px; }
+#btsearch .fa-search{color: black}
+footer{ width: 100%; float: left; position: relative;padding-left: 30px;
+    padding-right: 30px;}
+.title_f{ color: white; font-family: 16px; padding-bottom: 25px;font-family: "RobotoBold";}
+footer li a,p{ font-size: 14px; color: white;  font-family: "RobotoBold"; }
+footer li {padding-top: 5px; padding-bottom: 5px; }
+.thongtinhuuich li{ list-style-type:disc; color: white;margin-left: 16px}
+footer .fa-home{color: white; font-size: 16px; padding-left: 0px;}
+.thongtinfooter{background: #0089cd; padding: 30px}
+.ulfooter>li{ padding-top:6px; padding-bottom: 6px; }
+.tkheader{ margin: auto;width: 60%; }
+#logo>img{ height: 80px; }
