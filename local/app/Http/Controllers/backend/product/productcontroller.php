@@ -28,6 +28,7 @@ class productcontroller extends Controller
       $cat_slug = substr($request->cat_id,3,300);
 
       $mausac = $request->mausac;
+      //dd($mausac);
       $kichthuoc= $request->kichthuoc;
       //dd($cat_slug); die();
 
@@ -115,9 +116,11 @@ class productcontroller extends Controller
     }
     public function postedit(Request $request, $id)
     {
-         $id_cat = substr($request->cat_id,0,2);
-         $cat_slug = substr($request->cat_id,3,300);
-         //dd($cat_slug); die();
+        $id_cat = substr($request->cat_id,0,2);
+        $cat_slug = substr($request->cat_id,3,300);
+        $mausac = $request->mausac;
+        $kichthuoc = $request->kichthuoc;
+        //dd($mausac,$kichthuoc ); 
 
         $product = productmodel::find($id);
         $product->pro_name = $request->pro_name;
@@ -132,7 +135,10 @@ class productcontroller extends Controller
         $product->metatab= $request->metatab;
         $product->metadescription=$request->metadescription;
         $product->pro_price = $request->pro_price;
-        $product->kichthuoc = $request->kichthuoc;
+
+        $product->kichthuoc = json_encode($kichthuoc);
+        $product->mausac = json_encode($mausac);
+
         $product->title = $request->title;
         $product->catcha = $request->catcha;
         //$product->pro_newprice = $request->pro_newprice;

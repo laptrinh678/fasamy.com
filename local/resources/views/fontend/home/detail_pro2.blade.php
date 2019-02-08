@@ -36,11 +36,11 @@
 			                 	<p>Chia sẻ</p>
 			                 	<p align="center"><span><div class="fb-share-button" data-href="http://nhamoipro.xyz/ao-thu-dong/ao-len-nu-canh-doi-thu-dong.html" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnhamoipro.xyz%2Fao-thu-dong%2Fao-len-nu-canh-doi-thu-dong.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div></span>
 			                 	</p>
-			                 <p align="center">
+			                <!-- <p align="center">
 			                 		<a href="{{url("dowload/$detailproductId->pro_img")}}">
 			                 			<img class="img_dowload" src="{{url('public/fontend/images')}}/download.png" alt="">
 			                 		</a>
-			                 	</p>
+			                 	</p>-->
 			                 	
 			                 </div>
 			        		

@@ -11,7 +11,7 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="" class="navbar-brand">
+					<a href="{{url('admin/index')}}" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
 							QLTECH 3.0
@@ -288,19 +288,8 @@
 							</a>
 
 							<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close" id="user-menu-id">
-								<li>
-									<a href="#">
-										<i class="ace-icon fa fa-cog"></i>
-										Settings
-									</a>
-								</li>
-
-								<li>
-									<a href="profile.html">
-										<i class="ace-icon fa fa-user"></i>
-										Profile
-									</a>
-								</li>
+								
+								
 
 								<li class="divider"></li>
 

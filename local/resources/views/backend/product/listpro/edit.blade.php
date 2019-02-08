@@ -1,6 +1,7 @@
 @extends('backend.master.index')
 @section('content')
 @include('errors.functions')
+<link rel="stylesheet" href="assets/css/select2.min.css" /> 
 <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="assets/ckeditor/ckfinder/ckfinder.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><!--  co cai nay moi chay duoc upload image 21/6/2018 Egroup-->
@@ -91,16 +92,42 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Màu sắc</label>
 					<div class="col-sm-3">
-						<input type="text" value="{{$productId->mausac}}" name="mausac" class="form-control">
+						<select multiple="" id="state" name="mausac[]" class="select2" data-placeholder="Click to Choose...">
+												<option value="Xanh">Xanh</option>
+												<option value="Trắng">Trắng</option>
+												<option value="Đỏ">Đỏ</option>
+												<option value="Vàng">Vàng</option>
+												<option value="Đen">Đen</option>
+												<option value="Nâu">Nâu</option>
+												<option value="Da Cam">Da Cam</option>
+												<option value="Tím">Tím</option>
+												<option value="Hồng">Hồng</option>
+												<option value="Xanh da trời">Xanh da trời</option>
+												<option value="Xanh lá cây">Xanh lá cây</option>
+												<option value="Xám">Xám</option>
+						</select>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" for="form-field-1">Kích cỡ sản phẩm</label>
 					<div class="col-sm-3">
-						<textarea type="text" name="kichthuoc"  cols="50" rows="6" placeholder="<li> <span>S</span></li> <li> <span>M</span> </li> <li> <span>XL</span> </li>" >
-							{{$productId->kichthuoc}}
-						</textarea>
+						<select multiple="" id="state" name="kichthuoc[]" class="select2" data-placeholder="Click to Choose...">
+												<option value="X">X</option>
+												<option value="M">M</option>
+												<option value="L">L</option>
+												<option value="XL">XL</option>
+												<option value="XXL">XXL</option>
+												<option value="25">25</option>
+												<option value="26">26</option>
+												<option value="27">27</option>
+												<option value="28">28</option>
+												<option value="29">29</option>
+												<option value="30">30</option>
+												<option value="31">31</option>
+												<option value="32">32</option>
+												<option value="33">33</option>
+						</select>
 					</div>
 				</div>
 
@@ -339,6 +366,9 @@
 		</div>
 	</div>
 </div><!-- /.page-content -->
+<script src="assets/uploadfile_lap/jquery.js"></script>
+<script src="assets/js/jquery-2.1.4.min.js"></script>
+
  <script>
 	function readURL(input) {
   if (input.files && input.files[0]) {
@@ -363,6 +393,174 @@ $("#imgInp2").change(function() {
     reader.readAsDataURL(event.target.files[0]);
   };
 </script>
+<script type="text/javascript">
+		if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+	</script>
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- page specific plugin scripts -->
+	<script src="assets/js/jquery.bootstrap-duallistbox.min.js"></script>
+	<script src="assets/js/jquery.raty.min.js"></script>
+	<script src="assets/js/bootstrap-multiselect.min.js"></script>
+	<script src="assets/js/select2.min.js"></script>
+	<script src="assets/js/jquery-typeahead.js"></script>
+ <script>
+ 	// Xem hình ảnh trước khi upload
+function previewImg(event) {
+	// Gán giá trị các file vào biến files
+    var files = document.getElementById('img_file').files; 
+    // Show khung chứa ảnh xem trước
+    $('#div_1 .box-preview-img').show();
+    // Dùng vòng lặp for để thêm các thẻ img vào khung chứa ảnh xem trước
+    for (i = 0; i < files.length; i++)
+    {
+    	// Thêm thẻ img theo i
+        $('#div_1 .box-preview-img').append('<img src="" id="' + i +'">');
+        // Thêm src vào mỗi thẻ img theo id = i
+       $('#div_1 .box-preview-img img:eq('+i+')').attr('src', URL.createObjectURL(event.target.files[i]));
+    }   
+}
+// Nút reset form upload
+$('#div_1 .btn-reset').on('click', function(){
+	$('#div_1 .box-preview-img').html('');
+	$('#div_1 .box-preview-img').hide();
+	// Hide khung kết quả
+	$('#div_1 .output').hide();
+});
+function previewImg2(event) {
+	// Gán giá trị các file vào biến files
+    var files = document.getElementById('img_file2').files; 
+    // Show khung chứa ảnh xem trước
+    $('#div_2 #box_preview2').show();
+    // Dùng vòng lặp for để thêm các thẻ img vào khung chứa ảnh xem trước
+    for (i = 0; i < files.length; i++)
+    {
+    	// Thêm thẻ img theo i
+        $('#div_2 #box_preview2').append('<img src="" id="' + i +'">');
+        // Thêm src vào mỗi thẻ img theo id = i
+       $('#div_2 #box_preview2 img:eq('+i+')').attr('src', URL.createObjectURL(event.target.files[i]));
+    }   
+}
+// Nút reset form upload
+$('#div_2 .btn-reset2').on('click', function() {
+	// Làm trống khung chứa hình ảnh xem trước
+	$('#div_2 .box-preview-img').html('');
+	// Hide khung chứa hình ảnh xem trước
+	$('#div_2 .box-preview-img').hide();
+	// Hide khung kết quả
+	$('#div_2 .output').hide();
+});
+ </script>
+ <script type="text/javascript">
+			jQuery(function($){
+			    var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({infoTextFiltered: '<span class="label label-purple label-lg">Filtered</span>'});
+				var container1 = demo1.bootstrapDualListbox('getContainer');
+				container1.find('.btn').addClass('btn-white btn-info btn-bold');
+			
+				/**var setRatingColors = function() {
+					$(this).find('.star-on-png,.star-half-png').addClass('orange2').removeClass('grey');
+					$(this).find('.star-off-png').removeClass('orange2').addClass('grey');
+				}*/
+				$('.rating').raty({
+					'cancel' : true,
+					'half': true,
+					'starType' : 'i'
+					/**,
+					
+					'click': function() {
+						setRatingColors.call(this);
+					},
+					'mouseover': function() {
+						setRatingColors.call(this);
+					},
+					'mouseout': function() {
+						setRatingColors.call(this);
+					}*/
+				})//.find('i:not(.star-raty)').addClass('grey');
+				
+				
+				
+				//////////////////
+				//select2
+				$('.select2').css('width','200px').select2({allowClear:true})
+				$('#select2-multiple-style .btn').on('click', function(e){
+					var target = $(this).find('input[type=radio]');
+					var which = parseInt(target.val());
+					if(which == 2) $('.select2').addClass('tag-input-style');
+					 else $('.select2').removeClass('tag-input-style');
+				});
+				
+				//////////////////
+				$('.multiselect').multiselect({
+				 enableFiltering: true,
+				 enableHTML: true,
+				 buttonClass: 'btn btn-white btn-primary',
+				 templates: {
+					button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span> &nbsp;<b class="fa fa-caret-down"></b></button>',
+					ul: '<ul class="multiselect-container dropdown-menu"></ul>',
+					filter: '<li class="multiselect-item filter"><div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input class="form-control multiselect-search" type="text"></div></li>',
+					filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default btn-white btn-grey multiselect-clear-filter" type="button"><i class="fa fa-times-circle red2"></i></button></span>',
+					li: '<li><a tabindex="0"><label></label></a></li>',
+			        divider: '<li class="multiselect-item divider"></li>',
+			        liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>'
+				 }
+				});
+			
+				
+				///////////////////
+					
+				//typeahead.js
+				//example taken from plugin's page at: https://twitter.github.io/typeahead.js/examples/
+				var substringMatcher = function(strs) {
+					return function findMatches(q, cb) {
+						var matches, substringRegex;
+					 
+						// an array that will be populated with substring matches
+						matches = [];
+					 
+						// regex used to determine if a string contains the substring `q`
+						substrRegex = new RegExp(q, 'i');
+					 
+						// iterate through the pool of strings and for any string that
+						// contains the substring `q`, add it to the `matches` array
+						$.each(strs, function(i, str) {
+							if (substrRegex.test(str)) {
+								// the typeahead jQuery plugin expects suggestions to a
+								// JavaScript object, refer to typeahead docs for more info
+								matches.push({ value: str });
+							}
+						});
+			
+						cb(matches);
+					}
+				 }
+			
+				 $('input.typeahead').typeahead({
+					hint: true,
+					highlight: true,
+					minLength: 1
+				 }, {
+					name: 'states',
+					displayKey: 'value',
+					source: substringMatcher(ace.vars['US_STATES']),
+					limit: 10
+				 });
+					
+					
+				///////////////
+				
+				
+				//in ajax mode, remove remaining elements before leaving page
+				$(document).one('ajaxloadstart.page', function(e) {
+					$('[class*=select2]').remove();
+					$('select[name="duallistbox_demo1[]"]').bootstrapDualListbox('destroy');
+					$('.rating').raty('destroy');
+					$('.multiselect').multiselect('destroy');
+				});
+			
+			});
+		</script>
+
  
 @endsection('content')
 

@@ -108,17 +108,17 @@
 										<div class="col-xs-12 col-sm-9">
 											<select multiple="" id="state" name="mausac[]" class="select2" data-placeholder="Click to Choose...">
 												<option value="Xanh">Xanh</option>
-												<option value="trang">Trắng</option>
-												<option value="Do">Đỏ</option>
-												<option value="vang">Vàng</option>
-												<option value="Den">Đen</option>
-												<option value="nau">Nâu</option>
+												<option value="Trắng">Trắng</option>
+												<option value="Đỏ">Đỏ</option>
+												<option value="Vàng">Vàng</option>
+												<option value="Đen">Đen</option>
+												<option value="Nâu">Nâu</option>
 												<option value="Da Cam">Da Cam</option>
-												<option value="tim">Tím</option>
-												<option value="hong">Hồng</option>
-												<option value="Xanh da troi">Xanh da trời</option>
-												<option value="Xanh la cay">Xanh lá cây</option>
-												<option value="xam">Xám</option>
+												<option value="Tím">Tím</option>
+												<option value="Hồng">Hồng</option>
+												<option value="Xanh da trời">Xanh da trời</option>
+												<option value="Xanh lá cây">Xanh lá cây</option>
+												<option value="Xám">Xám</option>
 											</select>
 										</div>
 									</div>

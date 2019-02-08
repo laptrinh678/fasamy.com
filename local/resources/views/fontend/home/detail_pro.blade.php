@@ -3,7 +3,7 @@
  	{{$detailproductId->pro_name}}
  @endsection
  @section('header_style')
- 
+  <script src="{{url('public/fontend/bootstrap')}}/bootstrap3.4.0.min.js"></script>
 <script type="text/javascript" src="{{url('public/fontend/fancybox')}}/js/vendor/xzoom.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{url('public/fontend/fancybox')}}/css/xzoom.css" media="all" /> 
 <!-- hammer plugin here -->
@@ -13,6 +13,7 @@
 <link type="text/css" rel="stylesheet" media="all" href="{{url('public/fontend/fancybox')}}/magnific-popup/css/magnific-popup.css" />
 <script type="text/javascript" src="{{url('public/fontend/fancybox')}}/fancybox/source/jquery.fancybox.js"></script>
 <script type="text/javascript" src="{{url('public/fontend/fancybox')}}/magnific-popup/js/magnific-popup.js"></script>
+
 <link rel="stylesheet" href="{{url('public/fontend/css')}}/detailproduct.css" />    
  @endsection('header_style')
 
@@ -40,11 +41,11 @@
 			        		 <div class="bamuoi">
 			                 	<p class="chiase" align="center">Chia sẻ </p>
 			                 	<p><span><div class="fb-share-button" data-href="http://nhamoipro.xyz/ao-thu-dong/ao-len-nu-canh-doi-thu-dong.html" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnhamoipro.xyz%2Fao-thu-dong%2Fao-len-nu-canh-doi-thu-dong.html&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div></span></p>
-			                 	<p align="center">
+			                 	<!--<p align="center">
 			                 		<a href="{{url("dowload/$detailproductId->pro_img")}}">
 			                 			<img class="img_dowload" src="{{url('public/fontend/images')}}/download.png" alt="">
 			                 		</a>
-			                 	</p>
+			                 	</p>-->
 			                 </div>
 			        	</div>
 			        
@@ -93,13 +94,39 @@
 				<div class="mausac item_tt_sp">
 					<p>Màu sắc</p>
 					<ul>
-					 {!!$detailproductId->mausac!!}
+						<?php
+						$mausac = $detailproductId->mausac;
+						$mausac_decode = json_decode($mausac, true);
+						if(isset($mausac_decode))
+						{
+							foreach ($mausac_decode as $value) 
+							{
+								echo '<li> '.$value. ' </li>';
+							}
+						}
+							
+
+						 ?>
+					
 					</ul>
 				</div>
 				<div class="kichthuoc item_tt_sp">
 					<p>Size</p>
 					<ul>
-					 {!!$detailproductId->kichthuoc!!}
+						<?php
+							$kichthuoc = $detailproductId->kichthuoc;
+							$kichthuoc_decode = json_decode($kichthuoc, true);
+							if(isset($kichthuoc_decode))
+						{
+							foreach ($kichthuoc_decode as $value) 
+							{
+								echo '<li> '.$value. ' </li>';
+							}
+						}
+							
+
+						 ?>
+					
 					</ul>
 				</div>
 				
@@ -114,23 +141,32 @@
 		</div>
 		<div class="row content_detail_pro">
 			<div class="col-md-8 col-xs-12 col-sm-12 ">
-				 <div class="tabs-x tabs-above">
-            <ul id="myTab-kv-1" class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#home-kv-1" role="tab" data-toggle="tab">
-                CHI TIẾT</a></li>
-            </ul>
-            <div id="myTabContent-kv-1" class="tab-content">
-                <div class="tab-pane fade in active" id="home-kv-1">
-                    <div class="anhchitietsp">
-						{!!$detailproductId->description3!!}
-					</div>
-                </div>
-               
-              
-            </div>
-        </div>
-				
-<!-- Tab panels -->
+				 <ul class="nav nav-tabs">
+		    <li class="active"><a data-toggle="tab" href="#home">CHI TIẾT SẢN PHẨM</a></li>
+		    <li><a data-toggle="tab" href="#menu1">BÌNH LUẬN</a></li>
+		    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+		    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+		  </ul>
+
+		  <div class="tab-content">
+		    <div id="home" class="tab-pane fade in active">
+		    
+		     {!!$detailproductId->description3!!}
+		     
+		    </div>
+		    <div id="menu1" class="tab-pane fade">
+		      <h3>Menu 1</h3>
+		      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		    </div>
+		    <div id="menu2" class="tab-pane fade">
+		      <h3>Menu 2</h3>
+		      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+		    </div>
+		    <div id="menu3" class="tab-pane fade">
+		      <h3>Menu 3</h3>
+		      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+		    </div>
+		  </div>
 					
 			</div>
 			<div class="col-md-4 splienquan col-xs-12 col-sm-12">
