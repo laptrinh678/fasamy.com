@@ -1,7 +1,11 @@
-@include('errors.function_ul_li')
+
+@section('header_style')
+<script src="{{url('public/fontend')}}/bootstrap/bootstrap3.4.0.min.js"></script>
+@endsection('header_style')
 @include('errors.sanpham')
+ 
 <header>
-    <div class="container animated fadeInRight">
+    <div class="container-fluid animated fadeInRight">
      <div class="row">
       <div class="menu-top"> <!-- top menu top -->
             <div id="hotline-top" class="col-xs-12 col-md-6 col-lg-6">
@@ -10,8 +14,8 @@
             <ul class="col-xs-12 col-md-6 col-lg-6">
               <li class="cua-hang"><a href="http://fasamy.com/bai-viet/he-thong-cua-hang/">Cửa hàng</a></li>
               <li class="gioi-thieu"><a href="http://fasamy.com/bai-viet/gioi-thieu/gioi-thieu-ve-fasamy.html">Giới thiệu</a></li>
-              <li class="tuyen-dung"><a href="http://fasamy.com/bai-viet/tuyen-dung/">Tuyển dụng</a></li>
-              <li class="ho-tro"><a href="http://fasamy.com/lien-he.html">Hỗ trợ</a></li>
+              <li class="tuyen-dung"><a href="{{url('registration.html')}}" >Đăng ký</a></li>
+              <li class="ho-tro"><a href="">Đăng nhập</a></li>
             </ul>
           </div>
           <div id="banner"><!-- banner -->
@@ -53,7 +57,7 @@
                 
                   <div class="item col-md-4 col-sm-4 col-xs-12">
                     <p class="text-center my-account">
-                      <a href="http://fasamy.com/khach-hang/dang-nhap/" class="text-bottom" >
+                      <a href="{{url('login.html')}}" class="text-bottom" >
                         <i class="fa fa-user" aria-hidden="true"></i>
                         Tài khoản
                       </a>
@@ -73,6 +77,7 @@
       
     </div>
   </header>
+ 
   <script type="text/javascript">
     $(document).ready(function()
     {

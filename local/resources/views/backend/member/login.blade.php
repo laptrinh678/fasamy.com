@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Lapdev88</title>
+		<title>{{$header_footer->name}}</title>
 	
 		<meta name="description" content="User login page" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -14,7 +14,7 @@
 
 		<!-- text fonts -->
 		<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
-		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace.css" />
 		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
 		<link rel="stylesheet" href="assets/css/lapbackend.css" />
 
@@ -28,10 +28,10 @@
 						<div class="login-container">
 							<div class="center">
 								<h1>
-									<i class="ace-icon fa fa-leaf green"></i>
-									<span class="red">QLTECH</span>
+									<img src="{{url('public/backend/header')}}/{{$header_footer->logo1}}" alt="">
+									<span class="red">{{$header_footer->name}}</span>
 								</h1>
-								<h4 class="blue" id="id-company-text">Hãy ước mơ - Hãy chinh phục</h4>
+								<h4  id="id-company-text">{{$header_footer->slogan}}</h4>
 							</div>
 							<div class="space-6"></div>
 							<div class="position-relative">
@@ -78,7 +78,7 @@
 											</form>
 
 											<div class="social-or-login center">
-												<span class="bigger-110">Or Login Using</span>
+												
 											</div>
 
 											<div class="space-6"></div>

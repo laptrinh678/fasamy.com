@@ -3,7 +3,7 @@
  	{{$detailproductId->pro_name}}
  @endsection
  @section('header_style')
-  <script src="{{url('public/fontend/bootstrap')}}/bootstrap3.4.0.min.js"></script>
+ <script src="{{url('public/fontend/bootstrap')}}/bootstrap3.4.0.min.js"></script>
 <script type="text/javascript" src="{{url('public/fontend/fancybox')}}/js/vendor/xzoom.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{url('public/fontend/fancybox')}}/css/xzoom.css" media="all" /> 
 <!-- hammer plugin here -->
@@ -143,9 +143,8 @@
 			<div class="col-md-8 col-xs-12 col-sm-12 ">
 				 <ul class="nav nav-tabs">
 		    <li class="active"><a data-toggle="tab" href="#home">CHI TIẾT SẢN PHẨM</a></li>
-		    <li><a data-toggle="tab" href="#menu1">BÌNH LUẬN</a></li>
-		    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-		    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+		    <li><a data-toggle="tab" href="#menu1">DANH SÁCH BÌNH LUẬN</a></li>
+		   
 		  </ul>
 
 		  <div class="tab-content">
@@ -185,6 +184,30 @@
 				</div>
 				@endforeach
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-sm-12 col-xs-12 col-lg-6 CommentProduct">
+				<h3>BÌNH LUẬN SẢN PHẨM</h3>
+				<div class="nammuoi">
+					<div class="form-group">
+				  <label for="usr">Name:</label>
+				  <input type="text" class="form-control" id="usr">
+				</div>
+				</div>
+				<div class="nammuoi">
+					<div class="form-group">
+				  <label for="pwd">Password:</label>
+				  <input type="password" class="form-control" id="pwd">
+			</div>
+				</div>
+
+				
+				
+			</div>
+			<div class="col-md-6 col-sm-12 col-xs-12 col-lg-6">
+				
+			</div>
+			
 		</div>
 		
 			

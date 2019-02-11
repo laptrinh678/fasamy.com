@@ -239,8 +239,12 @@ Route::group(['namespace'=>'backend'], function()
 Route::group(['namespace'=>'fontend'], function()
 {
 	Route::get('/', 'homecontroller@getlist');
+	Route::post('/','homecontroller@postlist');
 	Route::get('lien-he.html', 'homepostcontroller@getlienhe');
 	Route::get('tuyen-dung.html', 'homepostcontroller@gettuyendung');
+	Route::get('registration.html', 'homecontroller@getLogin');
+	Route::post('registration.html', 'homecontroller@postLogin');
+
 	Route::get('mua-hang-thang-cong.html','cartcontroller@getcomplate');
 	Route::get('tin-tuc.html','homepostcontroller@getcatepost');
 	Route::get('tin-tuc/{slug}.html','homepostcontroller@getlistcatepost');
@@ -253,9 +257,9 @@ Route::group(['namespace'=>'fontend'], function()
 	Route::get('danh-muc/{slug_cate_con}.html','homecontroller@getcateprocate_con');
 	Route::get('{slug}.html','homecontroller@getcatepro');
 	Route::get('{slugcate}/{slug}.html','homecontroller@detailproduct');
-
 	
-	Route::post('/','homecontroller@postkhachhang');
+	
+	
 	
 	Route::post('chi-tiet-san-pham/{slug}','homecontroller@postcomment');
 	Route::get('chi-tiet-be-tong/{slug}.html','homecontroller@detail_betong');

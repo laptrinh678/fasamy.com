@@ -206,3 +206,9 @@ select {
     background: #444548;
 }
 .selectmulti{width:100% !important; border-radius: 5px;height: 45px !important;}
+#id-company-text{ font-size: 13px;
+    font-style: italic;
+    font-weight: bold; }
+.login-container .center>h1>img{width: 40px;
+    height: 30px;
+    border-radius: 3px;}

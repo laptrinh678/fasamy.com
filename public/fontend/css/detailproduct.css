@@ -10,18 +10,18 @@
 .tabs-above{width: 100%; float: left; margin-top: 5px; margin-bottom: 5px; border-left: 0px;}
 .tab-content{border:1px solid #dedcdc;border-top: 0px; padding-left: 15px;
     padding-right: 15px;
-    padding-bottom: 5px;}
+    padding-bottom: 5px; min-height: 300px;}
 .title_detail{ font-size: 20px; font-family: "RobotoBold";margin-top: 20px; }
 .trangthai >p{color: black; font-size: 13px;}
 .mausac >p{color: black; font-size: 13px;}
 .kichthuoc >p{color: black; font-size: 13px;}
-.mausac ul li{ display: inline-block; }
+.mausac ul li{ display: inline-block;padding-left: 5px; }
 .mausac ul li>span{ color: white;
     background: #76BA15;
     margin: 5px;
     padding: 5px;
     border-radius: 3px;}
-.kichthuoc ul li{ display: inline-block; }
+.kichthuoc ul li{ display: inline-block;padding-left: 5px; }
 .kichthuoc ul li>span{ color: black;
     background: #ffd600;
     /* padding: 8px; */

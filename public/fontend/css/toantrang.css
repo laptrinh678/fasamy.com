@@ -19,6 +19,8 @@ div#search .button-search {
 a{text-decoration: none !important}
 .menucon1 .right_70{padding-top: 0px!important;}
 .nammoi {width: 50%; float: left;}
+.login{width:42%; float: right;padding-right: 10px;}
+.login>h4{text-align: right;}
 .img_menu_con {
     width: 100%;
     height: 40px;
@@ -63,23 +65,37 @@ a{text-decoration: none !important}
 .img_menucontoantrang{width: 100%;
     height: 180px;}
 .title_gh>span{color: black;}
-#inputsearch{ padding-top: 10px;
+#inputsearch{ 
+   padding-top: 10px;
     padding-bottom: 10px;
-    border-radius: 20px;
+    border-radius: 1px;
     padding-left: 25px;
     padding-right: 135px;
     border: 1px solid black;
+    width: 99%;
      }
 #btsearch{ background: none; margin-left: -44px; }
 #btsearch .fa-search{color: black}
 footer{ width: 100%; float: left; position: relative;padding-left: 30px;
     padding-right: 30px;}
 .title_f{ color: white; font-family: 16px; padding-bottom: 25px;font-family: "RobotoBold";}
-footer li a,p{ font-size: 14px; color: white;  font-family: "RobotoBold"; }
+footer>li>a{ font-size: 14px; color: white;  font-family: "RobotoBold"; }
+footer>li>p{ font-size: 14px; color: white;  font-family: "RobotoBold"; }
+
 footer li {padding-top: 5px; padding-bottom: 5px; }
 .thongtinhuuich li{ list-style-type:disc; color: white;margin-left: 16px}
 footer .fa-home{color: white; font-size: 16px; padding-left: 0px;}
 .thongtinfooter{background: #0089cd; padding: 30px}
 .ulfooter>li{ padding-top:6px; padding-bottom: 6px; }
-.tkheader{ margin: auto;width: 60%; }
+.tkheader{ margin: auto;
+    width: 100%;
+    margin-top: 32px;}
 #logo>img{ height: 80px; }
+.modal-body {
+    padding-bottom: 45px;
+}
+.btn-primary .fa{ margin-right: 15px; }
+.right_header {padding-top: 10px;}
+.maxacnhan .nammuoi{ padding-left: 10px; }
+.titleLogin>h3>span{ color: black; }
+.btn-danger .fa-envelope-o{ margin-right: 10px; }

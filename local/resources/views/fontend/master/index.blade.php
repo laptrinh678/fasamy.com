@@ -10,7 +10,7 @@
   <!-- css owlcarosel-->
   <link rel="stylesheet" href="{{url('public/fontend')}}/owl/owl.carousel.min.css">
   <link rel="stylesheet" href="{{url('public/fontend')}}/owl/owl.theme.default.min.css">
-   <link rel="stylesheet" href="{{url('public/fontend')}}/bootstrap/bootstrap.css">
+   <link rel="stylesheet" href="{{url('public/fontend')}}/bootstrap/bootstrap.min.css">
   <!-- end css owl carosel -->
   <!--landing -->
   <!-- -->
@@ -23,11 +23,12 @@
   <link rel="stylesheet" href="{{url('public/fontend')}}/css/animate.css">
   <link rel="stylesheet" href="{{url('public/fontend')}}/css/reponsive.css">
 
-<script src="{{url('public/fontend')}}/bootstrap/bootstrap3.3.7.min.js"></script>
+<script src="{{url('public/fontend')}}/bootstrap/bootstrap3.4.0.min.js"></script>
 <script src="{{url('public/fontend')}}/js/jquery3.3.1.min.js"></script>
 <script src="{{url('public/fontend')}}/owl/jquery.min.js"></script>
 <script src="{{url('public/fontend')}}/owl/owl.carousel.js"></script>
 <script src="{{url('public/fontend')}}/wow/wow.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 
 
     @yield('header_style')

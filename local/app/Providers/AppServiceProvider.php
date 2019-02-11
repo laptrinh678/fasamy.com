@@ -91,6 +91,7 @@ class AppServiceProvider extends ServiceProvider
         $data['quangcao']= DB::table('quangcao')->select('img')->get();
         //dd($data['quangcao']);
         $data['header_footer']=DB::table('head_foot')->first();
+        //dd($data['header_footer']);
         view()->share($data);
     }
 

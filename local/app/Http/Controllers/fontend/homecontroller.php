@@ -9,15 +9,19 @@ use App\productmodel;
 use App\cateproductmodel;
 use App\catepostmodel;
 use App\productimgdetail;
+use Validator;
 use DB,Session;
 use Response;
 use App\blockmodel;
 use App\khachhangmodel;
+use App\customer;
 class homecontroller extends Controller
 {
-    public function getlist()
+    public function getlist(Request $request)
     {
-       
+        
+      
+
         $aothudong = cateproductmodel::where('id',72)->first();
         $quan = cateproductmodel::where('id',79)->first();
         $pro_aothudong = productmodel::where('cat_id',72)->orderBy('id','desc')->take(4)->get();
@@ -63,6 +67,7 @@ class homecontroller extends Controller
 
             'quanpro','quanpro2','quan','giaiphap_xaynha','post_tintucDesc','post_tintucAsc','ctdangthuchien','pro_spmoi','banner_khuyenmai','banner_khuyenmai2','banner_khuyenmai3','bodonu','bodonu2','bodonucate'));
     }
+   
     public function getjson()
     {
          $pro_sale = productmodel::all();
@@ -84,6 +89,7 @@ class homecontroller extends Controller
         return response()->json($cateproduct);
 
     }
+    /*
     public function postkhachhang(Request $request)
     {
         $khachhang= new khachhangmodel;
@@ -94,7 +100,7 @@ class homecontroller extends Controller
         window.location = '".url('/')."'
         </script>";
       
-    }
+    }*/
     public function detailproduct($slugcate,$slug)
     {
         //dd($id);
@@ -278,6 +284,47 @@ class homecontroller extends Controller
     {
        $file_path = 'public/backend/product/'.$banve;
        return response()->download($file_path);
+    }
+
+    public function getLogin()
+    {
+        return view('fontend.home.loginRegistry');
+    }
+    public function postLogin(Request $request)
+    {
+        $validate = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required',
+                'pass' => 'required',
+                'passConfirm' => 'required|same:pass',
+                'email' => 'required|email',
+            ],
+
+            [
+                'required' => 'Không được để trống',
+                'same' => 'Nhập lại PassWord không giống PassWord ',
+                'email' => 'Vui lòng nhập lại Email',
+            ]
+
+        );
+
+        if ($validate->fails()) {
+            return View('fontend.home.loginRegistry')->withErrors($validate);
+        }
+
+
+
+
+        $customer = new customer;
+        $customer->name = $request->name;
+        $customer->pass = $request->pass;
+       
+        $customer->passConfirm = $request->passConfirm;
+         //dd( $customer->pass,'k', $customer->passConfirm);
+        $customer->email = $request->email;
+        $customer->save();
+         return back()->with('addsucess','Đăng ký thành công');
     }
 
         

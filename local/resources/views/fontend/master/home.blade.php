@@ -29,6 +29,10 @@
    <meta name="distribution" content="Global"/>
    <meta name="viewport" content="width=device-width, initial-scale=1"> 
 @endsection('meta')
+@section('header_style')
+<script src="{{url('public/fontend')}}/bootstrap/bootstrap3.4.0.min.js"></script>
+@endsection('header_style')
+
 @section('content')
 @include('fontend.master.slider')
 <!-- CSS ================================================== -->
