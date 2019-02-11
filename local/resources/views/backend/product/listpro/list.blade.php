@@ -5,7 +5,7 @@
 <div class="page-content">
 	<div class="page-header">
 	<h1>
-		Danh sách sản phẩmg
+		Danh sách sản phẩm
 		<small>
 			<i class="ace-icon fa fa-angle-double-right"></i>
 			<a href="{{url('admin/product/listpro/add')}}"> Thêm sản phẩm mới</a>
@@ -65,10 +65,11 @@
 															<br> <br>
 															Giá: {{$val->pro_price}}
 															<br> <br>
-															Màu: 
-															<ul class="mausacsp">
-																
-																<?php
+															
+															<div class="mausacsp">
+																<p>
+																	<span>Màu: </span>
+																	<?php
 																	$mausac = $val->mausac;
 								                                    $mausac_decode = json_decode($mausac, true);
 																	if(isset($mausac_decode))
@@ -80,12 +81,15 @@
 																	}
 
 																 ?>
+																</p>
+																
 
 																
 																
-															</ul> 
-															<br> <br>
-															Mã Sp: 	{{$val->pro_masp}}
+															</div> 
+															<div><span>Mã Sp:</span>{{$val->pro_masp}}</div>
+													
+															 	
 															
 
 															
@@ -134,8 +138,8 @@
 
 														</td>
 
-														<td class="hidden-480">
-															
+														<td class="hidden-480 center">
+															<input type="button" value="On" class="onoff">
 														</td>
 
 														<td>
@@ -446,24 +450,20 @@
 					$(this).closest('tr').next().toggleClass('open');
 					$(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
 				});
-				/***************/
-				
-				
-				
-				
-				
-				/**
-				//add horizontal scrollbars to a simple table
-				$('#simple-table').css({'width':'2000px', 'max-width': 'none'}).wrap('<div style="width: 1000px;" />').parent().ace_scroll(
-				  {
-					horizontal: true,
-					styleClass: 'scroll-top scroll-dark scroll-visible',//show the scrollbars on top(default is bottom)
-					size: 2000,
-					mouseWheelLock: true
-				  }
-				).css('padding-top', '12px');
-				*/
-			
+				 $('.onoff').click( function()
+				    {
+				    	var val = $(this).val();
+				    	if(val=="On")
+				    	{
+				    		$(this).val('Of');
+				    		 $(this).css("background-color", "red");
+				    	} else {
+				    		$(this).val('On');
+				    		 $(this).css("background-color", "#112ad3");
+				    	}
+
+				    });
+
 			
 			})
 		</script>
