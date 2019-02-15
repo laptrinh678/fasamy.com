@@ -2,8 +2,8 @@
 // bắt đầu làm ngày 4/10/2017 phần backend;
 Route::group(['namespace'=>'backend'], function()
 {
-		Route::get('login','member\logincontroller@getlogin')->middleware('guest');
-		Route::post('login','member\logincontroller@postlogin');
+		Route::get('loginql','member\logincontroller@getlogin')->middleware('guest');
+		Route::post('loginql','member\logincontroller@postlogin');
 		Route::get('logout','member\logincontroller@getlogout');
 	Route::group(['prefix'=>'admin'/*'middleware'=>'auth'*/],function()
 	{
@@ -226,6 +226,17 @@ Route::group(['namespace'=>'backend'], function()
 		});
 		// lam ngay 4/2/2018 tai TVQG tang 4.
 
+		Route::group(['prefix'=>'Question'], function()
+		{
+			Route::get('list','QuestionController@getlist');
+			Route::get('add','QuestionController@getadd');
+			Route::post('add','QuestionController@postadd');
+			Route::get('edit/{id}','QuestionController@getedit');
+			Route::post('edit/{id}','QuestionController@postedit');
+			Route::get('delete/{id}','QuestionController@getdelete');
+			Route::get('ChangeStatus/{status}/{idQues}','QuestionController@getChangeStatus');
+
+		});
 		
 		
 		///kết thúc phần quảng cáo///
@@ -307,6 +318,7 @@ Route::group(['namespace'=>'fontend'], function()
     {
 			Route::get('sanphamnoibat','homecontroller@getjson');
 			Route::get('cateproduct','homecontroller@getapicateproduct');
+			Route::get('Question','homecontroller@getapi');
 			
 	});
     

@@ -15,6 +15,7 @@ use Response;
 use App\blockmodel;
 use App\khachhangmodel;
 use App\customer;
+use App\QuestionModel;
 class homecontroller extends Controller
 {
     public function getlist(Request $request)
@@ -87,6 +88,21 @@ class homecontroller extends Controller
         $cateproduct = cateproductmodel::all();
 
         return response()->json($cateproduct);
+
+    }
+
+     public function getapi()
+    {
+         $Question = QuestionModel::all();
+         //$data = response()->json($pro_sale);
+         $datajson = [
+            'errCode'=>1,
+            'errMsg'=>'Success', 
+            'data'=>$Question 
+
+         ];
+        
+        return $datajson;
 
     }
     /*

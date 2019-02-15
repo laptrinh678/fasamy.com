@@ -108,7 +108,7 @@
     function()
     {
       var gia = $(this).val();
-      $.get('http://nhamoipro.xyz/search_gia/'+gia, function(data){ 
+      $.get('http://localhost/fasamy.com/search_gia/'+gia, function(data){ 
           //alert(data); //#sanphamajax chinh la vung se chua du lieu tra ve tren chinh view nay;
           $('#nhandulieutravetuajax').html(data);
        })
@@ -116,7 +116,7 @@
    })
    $('#tksptheokichthuoc').change(function(){
     var kichthuoc = $(this).val();
-     $.get('http://nhamoipro.xyz/search_kichthuoc/'+kichthuoc, function(data){ 
+     $.get('http://localhost/fasamy.com/search_kichthuoc/'+kichthuoc, function(data){ 
           //alert(data); //#sanphamajax chinh la vung se chua du lieu tra ve tren chinh view nay;
           $('#nhandulieutravetuajax').html(data);
        })
