@@ -18,10 +18,8 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Tên câu hỏi </label>
 					<div class="col-sm-9">
+						<input type="text" name="nameQuestion" id="" required=" placeholder="Nhập tên câu hỏi" value="{{$Question->nameQuestion}}" class="col-xs-12 col-sm-6 inputQuestion">
 						
-						<textarea name="nameQuestion" id="" cols="50" rows="2" placeholder="Nhập tên câu hỏi">
-							{{$Question->nameQuestion}}
-						</textarea>
 						 <div class="alertQuestion"><span style="color:red">{{$errors->first('nameQuestion')}}</span></div>
 						
 					</div>

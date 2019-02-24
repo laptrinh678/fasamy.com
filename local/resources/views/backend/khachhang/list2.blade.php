@@ -6,8 +6,7 @@
 			Danh sách khách hàng
 			<small>
 				<i class="ace-icon fa fa-angle-double-right"></i>
-				<a href="{{url('admin/khachhang/add')}}"> Thêm khách hàng</a>
-			</small>
+				</small>
 		</h1>
 		@include('errors.note')
 	</div><!-- /.page-header -->

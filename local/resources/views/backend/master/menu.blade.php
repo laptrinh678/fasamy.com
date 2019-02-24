@@ -261,14 +261,21 @@
 							<li class="">
 								<a href="{{url('admin/khachhang/list')}}">
 									<i class="menu-icon fa fa-caret-right"></i>
-									List khách hàng
+									KH admin thêm
 								</a>
 								<b class="arrow"></b>
 							</li>
 							<li class="">
 								<a href="{{url('admin/khachhang/add')}}">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Thêm khách hàng mới
+									Admin Thêm KH mới
+								</a>
+								<b class="arrow"></b>
+							</li>
+							<li class="">
+								<a href="{{url('admin/khachhang/list2')}}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Khách tự đăng ký TK
 								</a>
 								<b class="arrow"></b>
 							</li>

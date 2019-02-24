@@ -207,6 +207,7 @@ Route::group(['namespace'=>'backend'], function()
 		Route::group(['prefix'=>'khachhang'], function()
 		{
 			Route::get('list','khachhang\khachhangcontroller@getlist');
+			Route::get('list2','khachhang\khachhangcontroller@getlistRegistry');
 			Route::get('add','khachhang\khachhangcontroller@getadd');
 			Route::post('add','khachhang\khachhangcontroller@postadd');
 			Route::get('edit/{id}','khachhang\khachhangcontroller@getedit');
@@ -255,6 +256,10 @@ Route::group(['namespace'=>'fontend'], function()
 	Route::get('tuyen-dung.html', 'homepostcontroller@gettuyendung');
 	Route::get('registration.html', 'homecontroller@getLogin');
 	Route::post('registration.html', 'homecontroller@postLogin');
+
+	Route::get('logincustomer.html', 'homecontroller@getLogincustomer');
+	Route::post('logincustomer.html', 'homecontroller@postLogincustomer');
+
 
 	Route::get('mua-hang-thang-cong.html','cartcontroller@getcomplate');
 	Route::get('tin-tuc.html','homepostcontroller@getcatepost');

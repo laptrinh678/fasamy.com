@@ -7,14 +7,14 @@ use App\Http\Controllers\Controller;
 use App\QuestionModel;
 use Validator;
 use DB;
+use Auth;
 use App\Http\Requests\backend\cateProduct\QuestionEditRequest;
 
 class QuestionController extends Controller
 {
     public function getlist()
     { 
-        $listQuestion = QuestionModel::all();
-        //dd($listQuestion);
+        $listQuestion = QuestionModel::orderBy('id', 'asc')->get();
     	return view('backend.Question.list', compact('listQuestion'));
     }
     public function getadd()
@@ -47,7 +47,7 @@ class QuestionController extends Controller
             return View('backend/Question/add')->withErrors($validate);
         }
 
-
+        
     	$Question = new QuestionModel;
         $Question ->nameQuestion= $request->nameQuestion;
         $Question ->replyA= $request->replyA;
@@ -56,6 +56,7 @@ class QuestionController extends Controller
         $Question ->replyD= $request->replyD;
         $Question ->chooseReply= $request->chooseReply;
         $Question ->status= $request->status;
+        $Question->user = Auth::user()->name;
         //dd($Question);
         $Question ->save();
         return redirect('admin/Question/list')->with('addsucess','Thêm mới thành công');
@@ -67,11 +68,11 @@ class QuestionController extends Controller
     }
     public function postedit(QuestionEditRequest $request, $id)
     {
-        
-       
-       
+        $statusId = DB::table('question')->select('status')->where('id', $id)->first();
+        //dd($statusId);
         $Questionid = QuestionModel::find($id);
         $Questionid ->nameQuestion= $request->nameQuestion;
+        dd($Questionid);
         $Questionid ->replyA= $request->replyA;
         $Questionid ->replyB= $request->replyB;
         $Questionid ->replyC= $request->replyC;
@@ -95,7 +96,8 @@ class QuestionController extends Controller
     {   //dd($status);
         DB::table('question')->where('id', $idQues)->update(['status' => $status]);
         $statusId = DB::table('question')->select('status')->where('id', $idQues)->first();
-        return view('backend.Status.status', compact('statusId'));
+        return view('backend.Status.status',compact('statusId'));
+        //return $statusId->status;
     }
 
    

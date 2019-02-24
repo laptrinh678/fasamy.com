@@ -39,6 +39,17 @@
             <input type="mail" class="form-control" name="email" >
              <span style="color:red">{{$errors->first('email')}}</span>
           </div>
+          <div class="form-group">
+            <label for="pwd">Số điện thoại</label>
+            <input type="number" class="form-control" name="phone" >
+             <span style="color:red">{{$errors->first('phone')}}</span>
+          </div>
+          <div class="form-group">
+            <label for="pwd">Link facebook</label>
+            <input type="text" class="form-control" name="face" >
+             <span style="color:red">{{$errors->first('face')}}</span>
+          </div>
+         
          
           
           <div class="form-group">

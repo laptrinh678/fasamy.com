@@ -15,7 +15,7 @@
               <li class="cua-hang"><a href="http://fasamy.com/bai-viet/he-thong-cua-hang/">Cửa hàng</a></li>
               <li class="gioi-thieu"><a href="http://fasamy.com/bai-viet/gioi-thieu/gioi-thieu-ve-fasamy.html">Giới thiệu</a></li>
               <li class="tuyen-dung"><a href="{{url('registration.html')}}" >Đăng ký</a></li>
-              <li class="ho-tro"><a href="">Đăng nhập</a></li>
+              <li class="ho-tro"><a href="{{url('logincustomer.html')}}">Đăng nhập</a></li>
             </ul>
           </div>
           <div id="banner"><!-- banner -->
@@ -57,10 +57,10 @@
                 
                   <div class="item col-md-4 col-sm-4 col-xs-12">
                     <p class="text-center my-account">
-                      <a href="{{url('login.html')}}" class="text-bottom" >
+                      
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        Tài khoản
-                      </a>
+                       @include('errors.note')
+                     
                     </p>
                   </div>
                 </div>

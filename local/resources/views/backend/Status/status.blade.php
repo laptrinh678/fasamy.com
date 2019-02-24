@@ -1,1 +1,1 @@
-<input type="button" value="{{$statusId}}" class="onoff">
+<input type="button" value="{{$statusId->status}}" class="onoff {{$statusId->status}}">

@@ -52,3 +52,6 @@
 @if(Session::has('sensucess'))
 	<p class="alert alert-success">{{Session::get('sensucess')}}</p>
 @endif
+@if(Session::has('name'))
+	<span class="alert alert-success">{{Session::get('name')}}</span>
+@endif

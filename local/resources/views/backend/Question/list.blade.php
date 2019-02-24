@@ -1,7 +1,7 @@
 @extends('backend.master.index')
 @section('content')
 <script src="{{url('public/backend/assets/js')}}/jquery3.3.1.min.js"></script>
-<meta name="csrf-token" content="{{ csrf_token() }}">
+
 
 <!-- We will put our React component inside this div.
     <div id="like_button_container"></div>
@@ -12,7 +12,7 @@
     <script src="{{url('public/backend/assets/js')}}/like_button.js"></script> -->
 
 
-<div class="page-content">
+<div class="page-content listQuestionParent">
 	<div class="page-header">
 	<h1>
 		Danh sách câu hỏi
@@ -23,7 +23,7 @@
 			@include('errors.note')
 	</h1>
 	</div><!-- /.page-header -->
-		<div class="row">
+		<div class="row ">
 							<div class="col-xs-12">
 									<div class="clearfix">
 											<div class="pull-right tableTools-container"></div>
@@ -55,7 +55,6 @@
 
 												<tbody>
 													
-													
 												@foreach($listQuestion as $key=>$val)
 												
 													<tr class="listQuestion">
@@ -86,12 +85,12 @@
 													    </td>
 														<td class="left">
 															
-															<p> <span>Người tạo</span>:{{Auth::user()->name}}</p>
+															<p> <span>Người tạo</span>:{{$val->user}}</p>
 															<p><span>Ngày tạo</span>:{{date('d-m-Y',strtotime($val->created_at))}}</p>
 
 														</td>
-														<td class="hidden-480 center">
-															<input type="button" value="{{$val->status}}" class="onoff">
+														<td class="hidden-480 center status">
+															<input type="button" title="{{$val->status}}" value="{{$val->status}}" class="onoff">
 															<input type="hidden" class="idQues" value="{{$val->id}}">
 														</td>
 
@@ -155,7 +154,7 @@
 							</div><!-- /.col -->
 						</div><!-- /.row -->
 
-
+<input id="signup-token" name="_token" type="hidden" value="{{csrf_token()}}">
 	
 </div><!-- /.page-content -->
 
@@ -163,7 +162,7 @@
 
 @section('script')
 
-<script src="assets/js/jquery-2.1.4.min.js"></script>
+<!-- <script src="assets/js/jquery3.2.1.min.js"></script> -->
 
 		<!-- <![endif]-->
 
@@ -403,34 +402,51 @@
 					$(this).closest('tr').next().toggleClass('open');
 					$(this).find(ace.vars['.icon']).toggleClass('fa-angle-double-down').toggleClass('fa-angle-double-up');
 				});
-				 $('.onoff').click( function()
-				    {
-				    	var val = $(this).val();
-				    	
-				    	if(val=="ON")
+				 $('[title="OFF"]').css({"background": "red"});
+				 $('[title="ON"]').css({"background": "#112ad3"});
+
+				 $('body').on('click','.onoff',function()
+				 {
+				 	var val = $(this).val();
+				    	var t = $(this);
+				    	if(val==="ON")
 				    	{
-				    		//$(this).val('OFF');
-				    		//$(this).css("background-color", "red");
 				    		 var status = 'OFF';
 				    		 var idQues = $(this).next().val();
-				    		 $.get('http://localhost/fasamy.com/admin/Question/ChangeStatus/'+status+'/'+idQues, function(data){
-				    		        alert(data); 
-						          //$(this).val(data);
+				    		 var thiss = $(this);
+
+				    		/* $.ajax({
+								    context: this,
+								    type: 'GET',
+								    url: "admin/Question/ChangeStatus",
+								    data: '/'+status +'/' +idQues,
+								    success: function(data){
+								      console.log(data);
+				    		        $(this).parent().append(data); 
+				    		        console.log('ok on');
+								    }
+								});*/
+				    		$.get( 'http://localhost/fasamy.com/admin/Question/ChangeStatus/'+status+'/'+idQues, function(data){
+				    			console.log(data);
+				    		        thiss.parent().append(data); 
+				    		        thiss.parent().find('.onoff:first').remove();
+								  
 						       });
-				    	} else {
-				    		//$(this).val('ON');
-				    		 //$(this).css("background-color", "#112ad3");
+				    	}else if(val==="OFF"){
+				   
 				    		  var status = 'ON';
 				    		  var idQues = $(this).next().val();
-				    		 $.get('http://localhost/fasamy.com/admin/Question/ChangeStatus/'+status+'/'+idQues, function(data){
-				    		        console.log(data); 
-						          //$(this).val(data);
+				    		  $.get( 'http://localhost/fasamy.com/admin/Question/ChangeStatus/'+status+'/'+idQues, function(data){
+				    			console.log(data);
+				    		        thiss.before(data); 
+				    		        console.log('ok off');
+						         
 						       });
+				    		
 				    	}
-				    	
 
-				    });
-
+				 })
+				
 			
 			})
 		</script>

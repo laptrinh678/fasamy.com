@@ -16,12 +16,12 @@ use App\blockmodel;
 use App\khachhangmodel;
 use App\customer;
 use App\QuestionModel;
+use Auth;
 class homecontroller extends Controller
 {
     public function getlist(Request $request)
     {
         
-      
 
         $aothudong = cateproductmodel::where('id',72)->first();
         $quan = cateproductmodel::where('id',79)->first();
@@ -35,8 +35,6 @@ class homecontroller extends Controller
 
         $quanpro = productmodel::where('catcha',79)->orderBy('id','asc')->take(8)->get();
         $quanpro2 = productmodel::where('catcha',79)->orderBy('id','desc')->take(8)->get();
-
-
         $bodonucate = cateproductmodel::where('id',93)->first();
         //dd($bodonucate);
         $bodonu = productmodel::where('catcha',93)->orderBy('id','asc')->take(8)->get();
@@ -86,24 +84,27 @@ class homecontroller extends Controller
     public function getapicateproduct()
     {
         $cateproduct = cateproductmodel::all();
-
         return response()->json($cateproduct);
-
     }
 
      public function getapi()
     {
-         $Question = QuestionModel::all();
+         $Question = QuestionModel::orderBy('id', 'desc')->take(12)->get();
+         //dd($Question);
+         $va =[];
+         foreach($Question as $key =>$val)
+         {  
+            $v = $val;
+            $v['index']=$key+1;// thêm trường key vào trong API cộng thêm 1 nữa do key bắt đầu chạy từ 0
+            $va[] = $v;   
+         }
          //$data = response()->json($pro_sale);
          $datajson = [
             'errCode'=>1,
             'errMsg'=>'Success', 
-            'data'=>$Question 
-
+            'data'=>$va 
          ];
-        
         return $datajson;
-
     }
     /*
     public function postkhachhang(Request $request)
@@ -315,6 +316,8 @@ class homecontroller extends Controller
                 'pass' => 'required',
                 'passConfirm' => 'required|same:pass',
                 'email' => 'required|email',
+                'phone' => 'required',
+                 'face' => 'required',
             ],
 
             [
@@ -339,8 +342,53 @@ class homecontroller extends Controller
         $customer->passConfirm = $request->passConfirm;
          //dd( $customer->pass,'k', $customer->passConfirm);
         $customer->email = $request->email;
+         $customer->face = $request->face;
+         $customer->phone = $request->phone;
         $customer->save();
          return back()->with('addsucess','Đăng ký thành công');
+    }
+    public function getLogincustomer()
+    {
+        return view('fontend.home.Logincustomer');
+    }
+    public function postLogincustomer(Request $request)
+    {
+        $validate = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required',
+                'pass' => 'required',
+               
+            ],
+
+            [
+                'required' => 'Không được để trống',
+               
+            ]
+
+        );
+
+        if ($validate->fails()) {
+            return View('fontend.home.Logincustomer')->withErrors($validate);
+        }
+
+       
+            $name=$request->name;
+            $pass = $request->pass;
+            $customer = customer::where('name','=',$name)->count();
+            $customerpass = customer::where('pass','=',$pass)->count();
+
+        if($customer ==1 && $customerpass ==1){
+            $minutes = 1;
+           
+            return redirect('/')->with('name',$name);
+        }
+        else
+        {
+            return redirect()->back()->with('err','Đăng nhập thất bại');
+        }
+       /* $name = $request->name;
+        $pass = $request->pass; */
     }
 
         

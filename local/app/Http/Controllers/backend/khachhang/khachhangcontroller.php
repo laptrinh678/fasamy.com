@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\khachhangmodel;
+use App\customer;
 
 class khachhangcontroller extends Controller
 {
@@ -15,6 +16,11 @@ class khachhangcontroller extends Controller
         $khachhang = khachhangmodel::paginate(10);
         //dd($khachhang);
     	return view('backend.khachhang.list',compact('khachhang'));
+    }
+    public function getlistRegistry()
+    {    
+        $khachhang = customer::paginate(10);
+        return view('backend.khachhang.list2',compact('khachhang'));
     }
     public function getadd()
     {

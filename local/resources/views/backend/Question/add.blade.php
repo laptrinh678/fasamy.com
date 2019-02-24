@@ -20,8 +20,8 @@
 						
 					</label>
 					<div class="col-sm-9">
+						<input type="text" name="nameQuestion" id="" required=" placeholder="Nhập tên câu hỏi" class="col-xs-12 col-sm-6 inputQuestion">
 						
-						<textarea name="nameQuestion" id="" required="" cols="50" rows="2" placeholder="Nhập tên câu hỏi"></textarea>
 						 <div class="alertQuestion"><span style="color:red">{{$errors->first('nameQuestion')}}</span></div>
 					
 					</div>
@@ -32,7 +32,7 @@
 					
 					</label>
 					<div class="col-sm-9">
-						<input type="text" required=""  id="form-field-1" name="replyA" placeholder="Nhập tên đáp án A" class="col-xs-10 col-sm-5" />
+						<input type="text" required=""  id="form-field-1" name="replyA" placeholder="Nhập tên đáp án A" class="col-xs-10 col-sm-5 inputQuestion" />
 						<label class="col-xs-2 control-label no-padding-right chooseReply">
 							<input name="chooseReply" type="radio" class="ace " value="A">
 							<span class="lbl">Đáp án đúng</span>
@@ -46,7 +46,7 @@
 						
 					 </label>
 					<div class="col-sm-9">
-						<input type="text" required="" id="form-field-1" name="replyB" placeholder="Nhập tên đáp án B" class="col-xs-10 col-sm-5" />
+						<input type="text" required="" id="form-field-1" name="replyB" placeholder="Nhập tên đáp án B" class="col-xs-10 col-sm-5 inputQuestion" />
 						<label class="col-xs-2 control-label no-padding-right chooseReply">
 							<input name="chooseReply" type="radio" class="ace "  value="B">
 							<span class="lbl">Đáp án đúng</span>
@@ -61,7 +61,7 @@
 					
 					</label>
 					<div class="col-sm-9">
-						<input type="text" required="" id="form-field-1" name="replyC" placeholder="Nhập tên đáp án C" class="col-xs-10 col-sm-5" />
+						<input type="text" required="" id="form-field-1" name="replyC" placeholder="Nhập tên đáp án C" class="col-xs-10 col-sm-5 inputQuestion" />
 						<label class="col-xs-2 control-label no-padding-right chooseReply">
 							<input name="chooseReply" type="radio" class="ace " value="C">
 							<span class="lbl">Đáp án đúng</span>
@@ -76,7 +76,7 @@
 					
 					 </label>
 					<div class="col-sm-9">
-						<input type="text" required=""  id="form-field-1" name="replyD" placeholder="Nhập tên đáp án D" class="col-xs-10 col-sm-5" />
+						<input type="text" required=""  id="form-field-1" name="replyD" placeholder="Nhập tên đáp án D" class="col-xs-10 col-sm-5 inputQuestion" />
 						<label class="col-xs-2 control-label no-padding-right chooseReply">
 							<input name="chooseReply" type="radio" class="ace " value="D">
 							<span class="lbl">Đáp án đúng</span>
@@ -126,6 +126,7 @@ $(document).ready(function()
 {
 	$('.chooseReply').click(function()
 	{
+		$('.inputQuestion').css('background','white');
 		$(this).parent().parent().find('input').css('background','#f5f0ae');
 	});
 
