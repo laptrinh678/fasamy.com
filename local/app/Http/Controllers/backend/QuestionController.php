@@ -8,6 +8,7 @@ use App\QuestionModel;
 use Validator;
 use DB;
 use Auth;
+use File;
 use App\Http\Requests\backend\cateProduct\QuestionEditRequest;
 
 class QuestionController extends Controller
@@ -26,11 +27,11 @@ class QuestionController extends Controller
         $validate = Validator::make(
             $request->all(),
             [
-                'nameQuestion' => 'required',
+                /*'nameQuestion' => 'required',
                 'replyA' => 'required',
                 'replyB' => 'required',
                 'replyC' => 'required',
-                'replyD' => 'required',
+                'replyD' => 'required',*/
                 'chooseReply' => 'required',
                 'status' => 'required',
             ],
@@ -50,14 +51,105 @@ class QuestionController extends Controller
         
     	$Question = new QuestionModel;
         $Question ->nameQuestion= $request->nameQuestion;
+        $Question ->imgQuestion= $request->imgQuestion;
+
+        $Question ->imgreplyA= $request->imgreplyA;
+        $Question ->imgreplyB= $request->imgreplyB;
+        $Question ->imgreplyC= $request->imgreplyC;
+        $Question ->imgreplyD= $request->imgreplyD;
+
         $Question ->replyA= $request->replyA;
         $Question ->replyB= $request->replyB;
         $Question ->replyC= $request->replyC;
         $Question ->replyD= $request->replyD;
+        $Question ->soundQuestion= $request->soundQuestion;
+     
         $Question ->chooseReply= $request->chooseReply;
         $Question ->status= $request->status;
         $Question->user = Auth::user()->name;
-        //dd($Question);
+
+    
+
+
+       /* // xu ly anh imgQuestion
+         if($request->hasFile('imgQuestion'))
+            {
+                $file_Icon = $request->file('imgQuestion');
+                $name_Icon = $file_Icon->getClientOriginalName();
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                while (file_exists('public/backend/question/'.$str_name_icon)) 
+                {
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                }
+                $file_Icon->move('public/backend/question/',$str_name_icon);
+                $Question->imgQuestion = $str_name_icon;
+            }
+         // xu ly anh imgreplyA
+         if($request->hasFile('imgreplyA'))
+            {
+                $file_Icon = $request->file('imgreplyA');
+                $name_Icon = $file_Icon->getClientOriginalName();
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                while (file_exists('public/backend/question/'.$str_name_icon)) 
+                {
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                }
+                $file_Icon->move('public/backend/question/',$str_name_icon);
+                $Question->imgreplyA = $str_name_icon;
+            }
+            
+    // xu ly anh imgreplyB
+         if($request->hasFile('imgreplyB'))
+            {
+                $file_Icon = $request->file('imgreplyB');
+                $name_Icon = $file_Icon->getClientOriginalName();
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                while (file_exists('public/backend/question/'.$str_name_icon)) 
+                {
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                }
+                $file_Icon->move('public/backend/question/',$str_name_icon);
+                $Question->imgreplyB = $str_name_icon;
+            }
+      // xu ly anh imgreplyC
+         if($request->hasFile('imgreplyC'))
+            {
+                $file_Icon = $request->file('imgreplyC');
+                $name_Icon = $file_Icon->getClientOriginalName();
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                while (file_exists('public/backend/question/'.$str_name_icon)) 
+                {
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                }
+                $file_Icon->move('public/backend/question/',$str_name_icon);
+                $Question->imgreplyC = $str_name_icon;
+            }
+           // xu ly anh imgreplyD
+         if($request->hasFile('imgreplyD'))
+            {
+                $file_Icon = $request->file('imgreplyD');
+                $name_Icon = $file_Icon->getClientOriginalName();
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                while (file_exists('public/backend/question/'.$str_name_icon)) 
+                {
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                }
+                $file_Icon->move('public/backend/question/',$str_name_icon);
+                $Question->imgreplyD = $str_name_icon;
+            }
+        // xu lý soundQuestion
+         if($request->hasFile('soundQuestion'))
+            {
+                $file_Icon = $request->file('soundQuestion');
+                $name_Icon = $file_Icon->getClientOriginalName();
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                while (file_exists('public/backend/question/'.$str_name_icon)) 
+                {
+                $str_name_icon = str_random(5)."-".$name_Icon;
+                }
+                $file_Icon->move('public/backend/question/',$str_name_icon);
+                $Question->soundQuestion = $str_name_icon;
+            }*/
         $Question ->save();
         return redirect('admin/Question/list')->with('addsucess','Thêm mới thành công');
     }
@@ -66,20 +158,24 @@ class QuestionController extends Controller
         $Question = QuestionModel::find($id);
     	return view('backend.Question.edit', compact('Question'));
     }
-    public function postedit(QuestionEditRequest $request, $id)
+    public function postedit(Request $request, $id)
     {
-        $statusId = DB::table('question')->select('status')->where('id', $id)->first();
-        //dd($statusId);
+       
         $Questionid = QuestionModel::find($id);
         $Questionid ->nameQuestion= $request->nameQuestion;
-        dd($Questionid);
+        $Questionid ->soundQuestion= $request->soundQuestion;
         $Questionid ->replyA= $request->replyA;
+        $Questionid ->imgreplyA= $request->imgreplyA;
+
         $Questionid ->replyB= $request->replyB;
+        $Questionid ->imgreplyB= $request->imgreplyB;
         $Questionid ->replyC= $request->replyC;
+        $Questionid ->imgreplyC= $request->imgreplyC;
         $Questionid ->replyD= $request->replyD;
+        $Questionid ->imgreplyD= $request->imgreplyD;
         $Questionid ->chooseReply= $request->chooseReply;
         $Questionid ->status= $request->status;
-        //dd($Question);
+
         $Questionid ->save();
         return redirect('admin/Question/list')->with('editsucess','Sửa thành công');
 

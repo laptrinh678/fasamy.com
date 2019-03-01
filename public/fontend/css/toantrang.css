@@ -1,3 +1,54 @@
+/* css chung cho toan bo web site*/
+@font-face {
+    font-family: Roboto-Regular;
+    src: url('../font/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: "RobotoBold";
+    src: url('../font/Roboto-Bold.ttf');
+}
+@font-face {
+    font-family: "Roboto-Medium";
+    src: url("../font/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family: "OpenSansBold";
+    src: url("../font/OpenSans-Bold.ttf");
+}
+@font-face {
+    font-family: "RobotoItalic";
+    src: url("../font/Roboto-Italic.ttf");
+}
+ul li {list-style: none;padding: 0px; margin: 0px;
+}
+ul{ padding: 0px; margin: 0px; }
+.wow:first-child {
+      visibility: hidden;
+    }
+a:hover {color: #ff671b;text-decoration: none;}
+a{ text-decoration: none; }
+p,h1,h2,h3,h4,h5,h6{ margin: 0px; padding: 0px; }
+.bonmuoi{width: 40%; float: left;}
+.saumuoi{width: 60%; float: left;}
+a{ text-decoration: none; color: black; }
+input,select {font-family:Roboto-Regular; font-size: 14px;}
+.mottram{width: 100%; float: left;}
+.haimoi{width: 20%; float: left;}
+
+.danhgiackhachhang_carosel .item img{ height: 80px;border: 1px solid #968f8f;
+    border-radius: 2px;margin-top: 14px; }
+.danhgiackhachhang_carosel .item{ padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px; }
+.s_left>a {
+    color: white;
+}
+
+.haimoi img{width: 100%; height: 50px; height: 83px;margin-top: 14px;}
+.tammoi{width: 80%; float: left}
+
+/* end css chung cho toan bo web site*/
 .button-search .fa-search{ color: black; font-size: 14px; }
 div#search .button-search {
     position: absolute;
@@ -99,3 +150,55 @@ footer .fa-home{color: white; font-size: 16px; padding-left: 0px;}
 .maxacnhan .nammuoi{ padding-left: 10px; }
 .titleLogin>h3>span{ color: black; }
 .btn-danger .fa-envelope-o{ margin-right: 10px; }
+
+.fa-check-square-o{ color: black; margin-right:10px; }
+.fa-volume-control-phone{ color: black; margin-right:10px; }
+.fa-shopping-bag{color: black; margin-right:10px;}
+.fa-hand-o-right{color: black; margin-right:10px;}
+.fa-truck{color: black; margin-right:10px;}
+.fa-newspaper-o{color: black; margin-right:10px;}
+
+.hoten_inpt_d {
+    padding: 10px 68px 10px 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+.email_input_d {
+    padding: 10px 68px 10px 10px;
+    width: 96%;
+    margin-top: 10px;
+    float: right;
+}
+
+.binhluan textarea {
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.search_sub_new2:hover {
+    padding: 14px 52px 14px 52px !important;
+    background: #0089cd !important;
+}
+.search_sub_new2 {
+    background: #ff671b !important;
+    padding: 12px 50px 12px 50px !important;
+    color: white !important;
+    border: none !important;
+    /* margin-left: -4px; */
+    font-family: Roboto-Regular;
+    font-size: 14px;
+    border-radius: 3px;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+.splienquan .mottram{border: 1px solid #dedcdc; padding:20px; }
+.splienquan  .left_30{border: 1px solid #dedcdc;}
+
+
+.thongtinchitietsp .mottram {
+    border: 1px solid #dedcdc;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    min-height: 494px;
+}
+.ulfooter>li>a{color: white;}

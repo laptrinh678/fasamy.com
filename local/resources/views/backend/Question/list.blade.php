@@ -62,20 +62,48 @@
 															{{$key}}
 														</td>
 														<td class="left">
-															{{$val->nameQuestion}}
+															<p><span>Tên câu hỏi</span> :{{$val->nameQuestion}}</p>
+	
+															<p align="center"><img class="imgQuestion" src="{{url('public/backend/question')}}/{{$val->imgQuestion}}" alt=""></p>
+															<p>
+																<span>Âm thanh câu hỏi</span>:
+																<audio controls>
+																  <source src="{{url('public/backend/question')}}/{{$val->soundQuestion}}" type="audio/mpeg">
+																</audio>
+															</p>
 															
 														</td>
 													
 														
 														
 														<td>
-														<p><span>Đáp án A</span>:{{$val->replyA}}</p>
+														<p>
+															<span>Đáp án A</span>:{{$val->replyA}}
+															<span><img class="imgQuestion" src="{{url('public/backend/question')}}/{{$val->imgreplyA}}" alt=""></span>
+														</p>
 														
-														<p><span>Đáp án B</span>:{{$val->replyB}}</p>
+														<p>
+															<span>Đáp án B</span>:{{$val->replyB}}
+															<span>
+																<img class="imgQuestion" src="{{url('public/backend/question')}}/{{$val->imgreplyB}}" alt="">
+															</span>
+														</p>
 														
-														<p><span>Đáp án C</span>:{{$val->replyC}}</p>
+														<p>
+															<span>Đáp án C</span>:{{$val->replyC}}
+															<span>
+																<img class="imgQuestion" src="{{url('public/backend/question')}}/{{$val->imgreplyC}}" alt="">
+															</span>
+
+														</p>
 														
-														<p><span>Đáp án D</span>:{{$val->replyD}}</p>
+														<p>
+															<span>Đáp án D</span>:{{$val->replyD}}
+															<span>
+																<img class="imgQuestion" src="{{url('public/backend/question')}}/{{$val->imgreplyD}}" alt="">
+															</span>
+
+														</p>
 	
 														</td>
 														<td class="hidden-480">

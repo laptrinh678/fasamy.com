@@ -21,7 +21,7 @@
 											<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="table-header">
-											Results for "Latest Registered Domains"
+											Danh sách Danh mục sản phẩm
 										</div>
 								<div class="row">
 									<div class="col-xs-12">
@@ -39,7 +39,7 @@
 														<th>
 															Parent-id
 														</th>
-														<th class="hidden-480">Status</th>
+														<th class="hidden-480">Thông tin</th>
 
 														<th>Hành động</th>
 													</tr>

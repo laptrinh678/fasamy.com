@@ -21,6 +21,15 @@ class logincontroller extends Controller
     		'password'=>$request->password,
     	];
     	if(Auth::attempt($login)){
+             $email = Auth::user()->email;
+             $password = Auth::user()->password;
+             //dd($user,$password );*/
+             // Lưu cookie trong 30 phút
+            $minutes = 30;
+            $email_cookie = cookie('email', $email, $minutes);
+            $password_cookie = cookie('password', $password, $minutes);
+
+
     		return redirect('admin/index')->with('success','Đăng nhập thành công');
     	}
     	else

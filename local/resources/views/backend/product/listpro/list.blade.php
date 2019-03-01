@@ -19,7 +19,7 @@
 											<div class="pull-right tableTools-container"></div>
 										</div>
 										<div class="table-header">
-											Results for "Latest Registered Domains"
+										 Danh sách sản phẩm
 										</div>
 								<div class="row">
 									<div class="col-xs-12">

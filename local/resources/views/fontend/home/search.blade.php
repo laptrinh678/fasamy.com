@@ -7,7 +7,7 @@
     $('.xemthem').click(function(){
 
       $.ajax({
-        url: "http://nhamoipro.xyz/search",
+        url: "http://localhost/fasamy.com/search",
         type: "GET",
         data: {total: total}
       }).done(function(data){

@@ -92,10 +92,40 @@ class homecontroller extends Controller
          $Question = QuestionModel::orderBy('id', 'desc')->take(12)->get();
          //dd($Question);
          $va =[];
+        // $url_default = 'http://nhamoipro.xyz/public/backend/question/';
          foreach($Question as $key =>$val)
          {  
+
             $v = $val;
             $v['index']=$key+1;// thêm trường key vào trong API cộng thêm 1 nữa do key bắt đầu chạy từ 0
+          /*  if($v['imgQuestion']!=null||$v['imgQuestion']!="")
+            {
+                $v['imgQuestion'] = $url_default.$v['imgQuestion'];
+            }
+            if($v['imgreplyA']!=null||$v['imgreplyA'] !="")
+            {
+                  $v['imgreplyA'] = $url_default.$v['imgreplyA'];
+            }
+            
+           if($v['imgreplyB']!=null||$v['imgreplyB'] !="")
+            {
+                  $v['imgreplyB'] = $url_default.$v['imgreplyB'];
+            }
+
+            if($v['imgreplyC']!=null||$v['imgreplyC'] !="")
+            {
+                  $v['imgreplyC'] = $url_default.$v['imgreplyC'];
+            }
+            
+            if($v['imgreplyD']!=null||$v['imgreplyD'] !="")
+            {
+                  $v['imgreplyD'] = $url_default.$v['imgreplyD'];
+            }*/
+            
+          
+          /*  $v['imgreplyB']= $url_default. $v['imgreplyB'];
+            $v['imgreplyC'] = $url_default.$v['imgreplyC'];
+            $v['imgreplyD'] = $url_default.$v['imgreplyD'];*/
             $va[] = $v;   
          }
          //$data = response()->json($pro_sale);
@@ -105,6 +135,10 @@ class homecontroller extends Controller
             'data'=>$va 
          ];
         return $datajson;
+    }
+    public function getapilist()
+    {
+        return view('fontend.home.api');
     }
     /*
     public function postkhachhang(Request $request)
@@ -379,9 +413,9 @@ class homecontroller extends Controller
             $customerpass = customer::where('pass','=',$pass)->count();
 
         if($customer ==1 && $customerpass ==1){
-            $minutes = 1;
+            $minutes = 3600;
            
-            return redirect('/')->with('name',$name);
+            return redirect('/')->with('name',$name,$minutes);
         }
         else
         {

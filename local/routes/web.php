@@ -1,12 +1,13 @@
 <?php
 // bắt đầu làm ngày 4/10/2017 phần backend;
 Route::group(['namespace'=>'backend'], function()
-{
+{		
 		Route::get('loginql','member\logincontroller@getlogin')->middleware('guest');
 		Route::post('loginql','member\logincontroller@postlogin');
 		Route::get('logout','member\logincontroller@getlogout');
 	Route::group(['prefix'=>'admin'/*'middleware'=>'auth'*/],function()
-	{
+	{	
+
 		Route::get('index', 'home\homecontroller@getlist');
 		Route::group(['prefix'=>'member'], function()
 		{
@@ -246,8 +247,17 @@ Route::group(['namespace'=>'backend'], function()
 			Route::get('mail','mail\mailcontroller@getmail');
 			Route::post('mail','mail\mailcontroller@postmail');
 		});
+
+		Route::any('{all}', function () {
+		    return view('fontend.home.error');
+		});
+
+
 	});//// Kết thúc route admin
+	
 });
+
+
 Route::group(['namespace'=>'fontend'], function()
 {
 	Route::get('/', 'homecontroller@getlist');
@@ -324,6 +334,7 @@ Route::group(['namespace'=>'fontend'], function()
 			Route::get('sanphamnoibat','homecontroller@getjson');
 			Route::get('cateproduct','homecontroller@getapicateproduct');
 			Route::get('Question','homecontroller@getapi');
+			Route::get('list','homecontroller@getapilist');
 			
 	});
     
